@@ -34,19 +34,4 @@ public class KafkaConsumerConfig {
                 StringDeserializer.class);
         return new DefaultKafkaConsumerFactory<>(props);
     }
-
-//    @Bean
-//    public ConcurrentKafkaListenerContainerFactory<String, String>
-//    kafkaListenerContainerFactory() {
-//
-//        ConcurrentKafkaListenerContainerFactory<String, String> factory =
-//                new ConcurrentKafkaListenerContainerFactory<>();
-//        factory.setConsumerFactory(consumerFactory());
-//        return factory;
-//    }
-//
-//    @KafkaListener(topics = "topicName")
-//    public void listenGroupFoo(String message) {
-//        System.out.println("Received Message in group foo: " + message);
-//    }
 }
