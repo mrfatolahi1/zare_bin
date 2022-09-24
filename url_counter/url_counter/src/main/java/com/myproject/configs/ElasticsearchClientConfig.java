@@ -1,4 +1,4 @@
-package com.myproject;
+package com.myproject.configs;
 
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.context.annotation.Bean;
