@@ -1,6 +1,5 @@
 package com.myproject.checkers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -11,22 +10,26 @@ import java.util.*;
 public class URLChecker {
 
     private Map<String, LinkedList<LocalDateTime>> map;
-    private int hotDuration = 600;
-    private int trendingFrequency = 3;
+
     public boolean check(String url){
-        return true;
-//        if (this.map == null){
-//            this.map = new HashMap<>();
-//        }
-//        if (!map.containsKey(url)){
-//            LinkedList<LocalDateTime> urlData = new LinkedList<>();
-//            urlData.add(LocalDateTime.now());
-//            map.put(url, urlData);
-//        } else {
-//            map.put(url, safeAdd(map.get(url), LocalDateTime.now()));
-//        }
-//
-//        return map.get(url).size() == trendingFrequency;
+        if (this.map == null){
+            this.map = new HashMap<>();
+        }
+        if (!map.containsKey(url)){
+            LinkedList<LocalDateTime> urlData = new LinkedList<>();
+            urlData.add(LocalDateTime.now());
+            map.put(url, urlData);
+        } else {
+            map.put(url, safeAdd(map.get(url), LocalDateTime.now()));
+        }
+
+        int trendingFrequency = 4;
+        if (map.get(url).size() >= trendingFrequency){
+            map.get(url).clear();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private LinkedList<LocalDateTime> safeAdd(LinkedList<LocalDateTime> urlData, LocalDateTime newUrlReceivingTime){
@@ -35,6 +38,7 @@ public class URLChecker {
         int mostDeleteObject = 0;
 
         for (LocalDateTime time : urlData){
+            int hotDuration = 5;
             if (Duration.between(time, newUrlReceivingTime).getSeconds() < hotDuration){
                 break;
             } else {

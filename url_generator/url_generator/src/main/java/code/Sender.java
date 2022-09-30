@@ -18,7 +18,6 @@ public class Sender {
     }
 
     public void send(String topic, String message){
-        System.out.println("AAAAAAAAAAAAAAAAAAa");
         kafkaTemplate.send(topic, message);
     }
 }

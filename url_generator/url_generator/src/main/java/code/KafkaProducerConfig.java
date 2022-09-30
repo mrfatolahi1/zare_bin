@@ -17,13 +17,16 @@ public class KafkaProducerConfig {
         Map<String, Object> kafkaConfigs = new HashMap<>();
         kafkaConfigs.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "localhost:9092");
+                "localhost:9092"
+        );
         kafkaConfigs.put(
                 ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
-                StringSerializer.class);
+                StringSerializer.class
+        );
         kafkaConfigs.put(
                 ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-                StringSerializer.class);
+                StringSerializer.class
+        );
         return kafkaConfigs;
     }
 }
