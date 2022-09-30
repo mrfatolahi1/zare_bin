@@ -14,18 +14,19 @@ public class URLChecker {
     private int hotDuration = 600;
     private int trendingFrequency = 3;
     public boolean check(String url){
-        if (this.map == null){
-            this.map = new HashMap<>();
-        }
-        if (!map.containsKey(url)){
-            LinkedList<LocalDateTime> urlData = new LinkedList<>();
-            urlData.add(LocalDateTime.now());
-            map.put(url, urlData);
-        } else {
-            map.put(url, safeAdd(map.get(url), LocalDateTime.now()));
-        }
-
-        return map.get(url).size() == trendingFrequency;
+        return true;
+//        if (this.map == null){
+//            this.map = new HashMap<>();
+//        }
+//        if (!map.containsKey(url)){
+//            LinkedList<LocalDateTime> urlData = new LinkedList<>();
+//            urlData.add(LocalDateTime.now());
+//            map.put(url, urlData);
+//        } else {
+//            map.put(url, safeAdd(map.get(url), LocalDateTime.now()));
+//        }
+//
+//        return map.get(url).size() == trendingFrequency;
     }
 
     private LinkedList<LocalDateTime> safeAdd(LinkedList<LocalDateTime> urlData, LocalDateTime newUrlReceivingTime){
