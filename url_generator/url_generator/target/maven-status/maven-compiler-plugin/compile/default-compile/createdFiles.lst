@@ -1,0 +1,5 @@
+code/Reader.class
+code/Sender.class
+code/KafkaProducerConfig.class
+code/Controller.class
+code/URLGeneratorApplication.class
